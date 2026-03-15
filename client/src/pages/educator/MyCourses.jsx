@@ -34,6 +34,31 @@ const MyCourses = () => {
 
   }
 
+  const togglePublish = async (courseId) => {
+
+    try {
+
+      const token = await getToken()
+
+      const { data } = await axios.put(
+        backendUrl + `/api/educator/toggle-publish/${courseId}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+
+      if (data.success) {
+        toast.success(data.message)
+        fetchEducatorCourses()
+      } else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+
+  }
+
   const { backendUrl, isEducator, currency, getToken } = useContext(AppContext)
 
   const [courses, setCourses] = useState(null)
@@ -73,6 +98,7 @@ const MyCourses = () => {
                 <th className="px-4 py-3 font-semibold truncate">Students</th>
                 <th className="px-4 py-3 font-semibold truncate">Published On</th>
                 <th className="px-4 py-3 font-semibold truncate">Action</th>
+                <th className="px-4 py-3 font-semibold truncate">Status</th>
               </tr>
             </thead>
             <tbody className="text-sm text-gray-500">
@@ -93,6 +119,21 @@ const MyCourses = () => {
                       className="text-red-600 border border-red-500 px-3 py-1 rounded hover:bg-red-600 hover:text-white"
                     >
                       Delete
+                    </button>
+                  </td>
+                  <td className="px-4 py-3">
+                    {course.isPublished ? (
+                      <span className="text-green-600 font-medium">Published</span>
+                    ) : (
+                      <span className="text-gray-500">Draft</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3">
+                    <button
+                      onClick={() => togglePublish(course._id)}
+                      className="border px-3 py-1 rounded text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white"
+                    >
+                      Toggle
                     </button>
                   </td>
                 </tr>

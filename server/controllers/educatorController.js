@@ -181,3 +181,30 @@ export const deleteCourse = async (req, res) => {
     res.json({ success: false, message: error.message })
   }
 }
+
+// Toggle Publish Course
+export const togglePublishCourse = async (req, res) => {
+  try {
+
+    const { courseId } = req.params
+    const educator = req.auth.userId
+
+    const course = await Course.findOne({ _id: courseId, educator })
+
+    if (!course) {
+      return res.json({ success: false, message: "Course not found" })
+    }
+
+    course.isPublished = !course.isPublished
+
+    await course.save()
+
+    res.json({
+      success: true,
+      message: course.isPublished ? "Course Published" : "Course Unpublished"
+    })
+
+  } catch (error) {
+    res.json({ success: false, message: error.message })
+  }
+}
