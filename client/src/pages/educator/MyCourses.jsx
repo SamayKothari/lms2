@@ -97,8 +97,8 @@ const MyCourses = () => {
                 <th className="px-4 py-3 font-semibold truncate">Earnings</th>
                 <th className="px-4 py-3 font-semibold truncate">Students</th>
                 <th className="px-4 py-3 font-semibold truncate">Published On</th>
-                <th className="px-4 py-3 font-semibold truncate">Action</th>
                 <th className="px-4 py-3 font-semibold truncate">Status</th>
+                <th className="px-4 py-3 font-semibold truncate">Action</th>
               </tr>
             </thead>
             <tbody className="text-sm text-gray-500">
@@ -114,14 +114,6 @@ const MyCourses = () => {
                     {new Date(course.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-3">
-                    <button
-                      onClick={() => handleDelete(course._id)}
-                      className="text-red-600 border border-red-500 px-3 py-1 rounded hover:bg-red-600 hover:text-white"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                  <td className="px-4 py-3">
                     {course.isPublished ? (
                       <span className="text-green-600 font-medium">Published</span>
                     ) : (
@@ -129,12 +121,28 @@ const MyCourses = () => {
                     )}
                   </td>
                   <td className="px-4 py-3">
-                    <button
-                      onClick={() => togglePublish(course._id)}
-                      className="border px-3 py-1 rounded text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white"
-                    >
-                      Toggle
-                    </button>
+                    <div className="flex flex-col gap-2">
+
+                      <button
+                        onClick={() => handleDelete(course._id)}
+                        className="text-red-600 border border-red-500 px-3 py-1 rounded hover:bg-red-600 hover:text-white"
+                      >
+                        Delete
+                      </button>
+
+                      <label className="inline-flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={course.isPublished}
+                          onChange={() => togglePublish(course._id)}
+                          className="sr-only peer"
+                        />
+                        <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-blue-600 relative transition">
+                          <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition peer-checked:translate-x-5"></div>
+                        </div>
+                      </label>
+
+                    </div>
                   </td>
                 </tr>
               ))}
