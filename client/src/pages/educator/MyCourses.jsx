@@ -121,7 +121,7 @@ const MyCourses = () => {
                     )}
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col items-center gap-2">
 
                       <button
                         onClick={() => handleDelete(course._id)}
@@ -130,16 +130,18 @@ const MyCourses = () => {
                         Delete
                       </button>
 
-                      <label className="inline-flex items-center cursor-pointer">
+                      <label className="relative inline-flex items-center cursor-pointer">
                         <input
                           type="checkbox"
                           checked={course.isPublished}
                           onChange={() => togglePublish(course._id)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-blue-600 relative transition">
-                          <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition peer-checked:translate-x-5"></div>
-                        </div>
+
+                        <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-blue-600 transition"></div>
+
+                        <span className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition duration-300 peer-checked:translate-x-5"></span>
+
                       </label>
 
                     </div>
