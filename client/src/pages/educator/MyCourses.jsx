@@ -121,7 +121,7 @@ const MyCourses = () => {
                     )}
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex flex-col items-start gap-2 ml-2">
+                    <div className="flex flex-col items-start gap-2 ">
 
                       <button
                         onClick={() => handleDelete(course._id)}
