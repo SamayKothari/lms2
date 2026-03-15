@@ -4,6 +4,7 @@ import { AppContext } from '../../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loading from '../../components/student/Loading';
+import DashboardCharts from "./DashboardCharts";
 
 const Dashboard = () => {
 
@@ -97,6 +98,7 @@ const Dashboard = () => {
             </table>
           </div>
         </div>
+        <DashboardCharts courses={courses} />
       </div>
     </div>
   ) : <Loading />
