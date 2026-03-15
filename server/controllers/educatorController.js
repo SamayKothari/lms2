@@ -159,3 +159,25 @@ export const getEnrolledStudentsData = async (req, res) => {
         });
     }
 };
+
+// Delete Course
+export const deleteCourse = async (req, res) => {
+  try {
+
+    const { courseId } = req.params
+    const educator = req.auth.userId
+
+    const course = await Course.findOne({ _id: courseId, educator })
+
+    if (!course) {
+      return res.json({ success: false, message: "Course not found" })
+    }
+
+    await Course.findByIdAndDelete(courseId)
+
+    res.json({ success: true, message: "Course Deleted Successfully" })
+
+  } catch (error) {
+    res.json({ success: false, message: error.message })
+  }
+}

@@ -6,6 +6,34 @@ import Loading from '../../components/student/Loading';
 
 const MyCourses = () => {
 
+  const handleDelete = async (courseId) => {
+
+    const confirmDelete = window.confirm("Are you sure you want to delete this course?")
+
+    if (!confirmDelete) return
+
+    try {
+
+      const token = await getToken()
+
+      const { data } = await axios.delete(
+        backendUrl + `/api/educator/delete-course/${courseId}`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+
+      if (data.success) {
+        toast.success(data.message)
+        fetchEducatorCourses()
+      } else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+
+  }
+
   const { backendUrl, isEducator, currency, getToken } = useContext(AppContext)
 
   const [courses, setCourses] = useState(null)
@@ -44,6 +72,7 @@ const MyCourses = () => {
                 <th className="px-4 py-3 font-semibold truncate">Earnings</th>
                 <th className="px-4 py-3 font-semibold truncate">Students</th>
                 <th className="px-4 py-3 font-semibold truncate">Published On</th>
+                <th className="px-4 py-3 font-semibold truncate">Action</th>
               </tr>
             </thead>
             <tbody className="text-sm text-gray-500">
@@ -57,6 +86,14 @@ const MyCourses = () => {
                   <td className="px-4 py-3">{course.enrolledStudents.length}</td>
                   <td className="px-4 py-3">
                     {new Date(course.createdAt).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-3">
+                    <button
+                      onClick={() => handleDelete(course._id)}
+                      className="text-red-600 border border-red-500 px-3 py-1 rounded hover:bg-red-600 hover:text-white"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
