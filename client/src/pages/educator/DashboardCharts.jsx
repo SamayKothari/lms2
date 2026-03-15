@@ -20,11 +20,12 @@ const DashboardCharts = ({ courses }) => {
   }));
 
   return (
-    <div className="w-full grid md:grid-cols-2 gap-6 mt-8">
+    <div className="grid md:grid-cols-2 gap-6 mt-8 w-full">
 
       {/* Revenue Chart */}
       <div className="bg-white p-4 rounded shadow">
         <h3 className="font-semibold mb-4">Revenue per Course</h3>
+
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -34,11 +35,13 @@ const DashboardCharts = ({ courses }) => {
             <Bar dataKey="revenue" fill="#2563eb" />
           </BarChart>
         </ResponsiveContainer>
+
       </div>
 
       {/* Students Chart */}
       <div className="bg-white p-4 rounded shadow">
         <h3 className="font-semibold mb-4">Students per Course</h3>
+
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -48,6 +51,7 @@ const DashboardCharts = ({ courses }) => {
             <Bar dataKey="students" fill="#16a34a" />
           </BarChart>
         </ResponsiveContainer>
+
       </div>
 
     </div>

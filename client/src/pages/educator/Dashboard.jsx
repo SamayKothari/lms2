@@ -12,6 +12,8 @@ const Dashboard = () => {
 
   const [dashboardData, setDashboardData] = useState(null)
 
+  const [courses, setCourses] = useState([])
+
   const fetchDashboardData = async () => {
     try {
 
@@ -32,10 +34,32 @@ const Dashboard = () => {
     }
   }
 
+  const fetchCourses = async () => {
+
+    try {
+
+      const token = await getToken()
+
+      const { data } = await axios.get(
+        backendUrl + "/api/educator/courses",
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+
+      if (data.success) {
+        setCourses(data.courses)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+
+  }
+
   useEffect(() => {
 
     if (isEducator) {
       fetchDashboardData()
+      fetchCourses()
     }
 
   }, [isEducator])
