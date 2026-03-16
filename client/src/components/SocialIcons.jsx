@@ -22,7 +22,7 @@ const SocialIcons = () => {
         to='https://x.com/'
         className="group transition transform hover:scale-110 text-[#cbc3c3] hover:text-gray-700"
       >
-        <FaXTwitter size={34} weight="fill" className="transition-colors duration-300" />
+        <FaXTwitter size={30} weight="fill" className="transition-colors duration-300" />
       </Link>
       <Link 
         target='_blank' 
