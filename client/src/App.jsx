@@ -18,6 +18,7 @@ import Loading from './components/student/Loading'
 import About from './components/About'
 import ContactForm from './components/ContactForm'
 import PrivacyPolicy from './components/PrivacyPolicy'
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
 
@@ -28,6 +29,7 @@ const App = () => {
       <ToastContainer />
       {/* Render Student Navbar only if not on educator routes */}
       {!isEducatorRoute && <Navbar />}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/course/:id" element={<CourseDetails />} />
