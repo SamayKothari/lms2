@@ -35,7 +35,7 @@ const SocialIcons = () => {
         to='https://github.com/'
         className="group transition transform hover:scale-110 text-[#c2baba] hover:text-gray-500"
       >
-        <FaGithub size={34} weight="fill" className="transition-colors duration-300" />
+        <FaGithub size={30} weight="fill" className="transition-colors duration-300" />
       </Link>
       <Link 
         target='_blank' 
