@@ -5,7 +5,7 @@ import {
   LinkedinLogo,  
   WhatsappLogo 
 } from 'phosphor-react'
-import { FaXTwitter, GithubLogo } from "react-icons/fa6";
+import { FaXTwitter, FaGithub } from "react-icons/fa6";
 const SocialIcons = () => {
   return (
     <div className='flex items-center gap-3 mt-5 ml-1 mb-2 max-md:mt-4'>
@@ -35,7 +35,7 @@ const SocialIcons = () => {
         to='https://github.com/'
         className="group transition transform hover:scale-110 text-[#c2baba] hover:text-gray-500"
       >
-        <GithubLogo size={34} weight="fill" className="transition-colors duration-300" />
+        <FaGithub size={34} weight="fill" className="transition-colors duration-300" />
       </Link>
       <Link 
         target='_blank' 
