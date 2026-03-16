@@ -2,10 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { 
   FacebookLogo, 
-  TwitterLogo, 
+  XLogo, 
   LinkedinLogo, 
   GithubLogo, 
-  GitBranch, 
   WhatsappLogo 
 } from 'phosphor-react'
 
@@ -24,7 +23,7 @@ const SocialIcons = () => {
         to='https://x.com/'
         className="group transition transform hover:scale-110 text-[#cbc3c3] hover:text-gray-700"
       >
-        <TwitterLogo size={34} weight="fill" className="transition-colors duration-300" />
+        <XLogo size={34} weight="fill" className="transition-colors duration-300" />
       </Link>
       <Link 
         target='_blank' 
@@ -39,13 +38,6 @@ const SocialIcons = () => {
         className="group transition transform hover:scale-110 text-[#c2baba] hover:text-gray-500"
       >
         <GithubLogo size={34} weight="fill" className="transition-colors duration-300" />
-      </Link>
-      <Link 
-        target='_blank' 
-        to='https://github.com/'
-        className="group transition transform hover:scale-110 text-[#e01d1d] hover:text-red-600"
-      >
-        <GitBranch size={34} weight="fill" className="transition-colors duration-300" />
       </Link>
       <Link 
         target='_blank' 
