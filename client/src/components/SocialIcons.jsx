@@ -2,11 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { 
   FacebookLogo,  
-  LinkedinLogo, 
-  GithubLogo, 
+  LinkedinLogo,  
   WhatsappLogo 
 } from 'phosphor-react'
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter, GithubLogo } from "react-icons/fa6";
 const SocialIcons = () => {
   return (
     <div className='flex items-center gap-3 mt-5 ml-1 mb-2 max-md:mt-4'>
