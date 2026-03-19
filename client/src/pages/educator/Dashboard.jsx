@@ -4,7 +4,7 @@ import { AppContext } from '../../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loading from '../../components/student/Loading';
-import DashboardCharts from "./DashboardCharts";
+import DashboardCharts from "../../components/educator/DashboardCharts";
 
 const Dashboard = () => {
 
