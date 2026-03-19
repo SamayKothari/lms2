@@ -93,25 +93,25 @@ export const assets = {
 
 export const dummyTestimonial = [
     {
-        name: 'Donald Jackman',
-        role: 'SWE 1 @ Amazon',
-        image: assets.profile_img_1,
+        name: 'Rahul Sharma',
+        role: 'BCA Student, Mumbai',
+        image: assets.user_icon,
         rating: 5,
-        feedback: 'I\'ve been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.',
+        feedback: 'Mujhe Edemy se web development seekhne me bahut help mili. Courses simple aur practical hai.',
     },
     {
-        name: 'Richard Nelson',
-        role: 'SWE 2 @ Samsung',
-        image: assets.profile_img_2,
+        name: 'Priya Patel',
+        role: 'BCom Student, Ahmedabad',
+        image: assets.user_icon_2,
         rating: 4,
-        feedback: 'I\'ve been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.',
+        feedback: 'Platform ka UI clean hai aur courses easy to understand hai. Beginners ke liye best hai.',
     },
     {
-        name: 'James Washington',
-        role: 'SWE 2 @ Google',
-        image: assets.profile_img_3,
-        rating: 4.5,
-        feedback: 'I\'ve been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.',
+        name: 'Amit Verma',
+        role: 'Engineering Student, Delhi',
+        image: assets.person_tick_icon,
+        rating: 4,
+        feedback: 'Affordable courses aur good content quality. Mujhe MERN stack samajhne me kaafi help mili.',
     },
 ];
 
