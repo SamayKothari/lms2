@@ -119,7 +119,7 @@ const MyCourses = () => {
                     )}
                   </td>
                   <td className="px-4 py-3 flex flex-col md:flex-row gap-2 items-center">
-                    <div className="flex flex-col items-start gap-2 ">
+                    <div className="flex flex-col items-center gap-2">
 
                       <button
                         onClick={() => handleDelete(course._id)}
@@ -138,7 +138,7 @@ const MyCourses = () => {
 
                         <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-blue-600 transition"></div>
 
-                        <span className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition duration-300 peer-checked:translate-x-5"></span>
+                        <span className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-all duration-300 peer-checked:translate-x-5"></span>
 
                       </label>
 
