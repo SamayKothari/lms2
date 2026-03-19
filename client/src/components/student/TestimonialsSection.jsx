@@ -24,11 +24,11 @@ const TestimonialsSection = () => {
             </div>
             <div className="p-5 pb-7">
               <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
+                {[1,2,3,4,5].map((i) => (
                   <img
-                    className="h-5"
                     key={i}
-                    src={i < Math.floor(testimonial.rating) ? assets.star : assets.star_blank}
+                    className="h-5"
+                    src={i <= testimonial.rating ? assets.star : assets.star_blank}
                     alt="star"
                   />
                 ))}
