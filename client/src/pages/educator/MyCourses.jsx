@@ -89,7 +89,7 @@ const MyCourses = () => {
     <div className="h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0">
       <div className='w-full'>
         <h2 className="pb-4 text-lg font-medium">My Courses</h2>
-        <div className="flex flex-col items-center max-w-4xl w-full overflow-x-auto rounded-md bg-white border border-gray-500/20">
+        <div className="hidden md:flex flex-col items-center max-w-4xl w-full overflow-x-auto rounded-md bg-white border border-gray-500/20">
           <table className="table-auto w-full min-w-[600px]">
             <thead className="text-gray-900 border-b border-gray-500/20 text-sm text-left">
               <tr>
@@ -148,6 +148,52 @@ const MyCourses = () => {
               ))}
             </tbody>
           </table>
+          <div className="md:hidden flex flex-col gap-4 w-full">
+            {courses.map((course) => (
+              <div key={course._id} className="bg-white p-4 rounded-md border border-gray-300 shadow-sm">
+
+                {/* Top: Image + Title */}
+                <div className="flex items-center gap-3">
+                  <img src={course.courseThumbnail} className="w-14 h-14 rounded" />
+                  <p className="text-sm font-medium">{course.courseTitle}</p>
+                </div>
+
+                {/* Status */}
+                <div className="mt-3 flex justify-between items-center">
+                  <span className={`text-sm font-medium ${course.isPublished ? "text-green-600" : "text-gray-500"}`}>
+                    {course.isPublished ? "Published" : "Draft"}
+                  </span>
+
+                  {/* Toggle */}
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={course.isPublished}
+                      onChange={() => togglePublish(course._id)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-10 h-5 bg-gray-300 rounded-full peer-checked:bg-blue-600"></div>
+                    <span className="absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition peer-checked:translate-x-5"></span>
+                  </label>
+                </div>
+
+                {/* Earnings + Students */}
+                <div className="flex justify-between text-xs text-gray-500 mt-3">
+                  <span>₹ {Math.floor(course.enrolledStudents.length * (course.coursePrice - course.discount * course.coursePrice / 100))}</span>
+                  <span>{course.enrolledStudents.length} Students</span>
+                </div>
+
+                {/* Delete */}
+                <button
+                  onClick={() => handleDelete(course._id)}
+                  className="mt-3 w-full text-red-600 border border-red-500 py-1 rounded hover:bg-red-600 hover:text-white text-sm"
+                >
+                  Delete
+                </button>
+
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
