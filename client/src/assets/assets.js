@@ -102,7 +102,7 @@ export const dummyTestimonial = [
     {
         name: 'Priya Patel',
         role: 'BCom Student, Ahmedabad',
-        image: assets.user_icon_2,
+        image: assets.upload_area,
         rating: 4,
         feedback: 'Platform ka UI clean hai aur courses easy to understand hai. Beginners ke liye best hai.',
     },
