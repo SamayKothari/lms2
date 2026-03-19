@@ -89,14 +89,14 @@ const MyCourses = () => {
     <div className="h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0">
       <div className='w-full'>
         <h2 className="pb-4 text-lg font-medium">My Courses</h2>
-        <div className="flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20">
-          <table className="md:table-auto table-fixed w-full overflow-hidden">
+        <div className="flex flex-col items-center max-w-4xl w-full overflow-x-auto rounded-md bg-white border border-gray-500/20">
+          <table className="table-auto w-full min-w-[600px]">
             <thead className="text-gray-900 border-b border-gray-500/20 text-sm text-left">
               <tr>
                 <th className="px-4 py-3 font-semibold truncate">All Courses</th>
-                <th className="px-4 py-3 font-semibold truncate">Earnings</th>
-                <th className="px-4 py-3 font-semibold truncate">Students</th>
-                <th className="px-4 py-3 font-semibold truncate">Published On</th>
+                <th className="px-4 py-3 font-semibold truncate hidden md:table-cell">Earnings</th>
+                <th className="px-4 py-3 font-semibold truncate hidden md:table-cell">Students</th>
+                <th className="px-4 py-3 font-semibold truncate hidden md:table-cell">Published On</th>
                 <th className="px-4 py-3 font-semibold truncate">Status</th>
                 <th className="px-4 py-3 font-semibold truncate">Action</th>
               </tr>
@@ -106,13 +106,11 @@ const MyCourses = () => {
                 <tr key={course._id} className="border-b border-gray-500/20">
                   <td className="md:px-4 pl-2 md:pl-4 py-3 flex items-center space-x-3 truncate">
                     <img src={course.courseThumbnail} alt="Course Image" className="w-16" />
-                    <span className="truncate hidden md:block">{course.courseTitle}</span>
+                    <span className="truncate text-xs md:text-sm hidden sm:block">{course.courseTitle}</span>
                   </td>
-                  <td className="px-4 py-3">{currency} {Math.floor(course.enrolledStudents.length * (course.coursePrice - course.discount * course.coursePrice / 100))}</td>
-                  <td className="px-4 py-3">{course.enrolledStudents.length}</td>
-                  <td className="px-4 py-3">
-                    {new Date(course.createdAt).toLocaleDateString()}
-                  </td>
+                  <td className="px-4 py-3 hidden md:table-cell">{currency} {Math.floor(course.enrolledStudents.length * (course.coursePrice - course.discount * course.coursePrice / 100))}</td>
+                  <td className="px-4 py-3 hidden md:table-cell">{course.enrolledStudents.length}</td>
+                  <td className="px-4 py-3 hidden md:table-cell">{new Date(course.createdAt).toLocaleDateString()}</td>
                   <td className="px-4 py-3">
                     {course.isPublished ? (
                       <span className="text-green-600 font-medium">Published</span>
@@ -120,7 +118,7 @@ const MyCourses = () => {
                       <span className="text-gray-500">Draft</span>
                     )}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 flex flex-col md:flex-row gap-2 items-center">
                     <div className="flex flex-col items-start gap-2 ">
 
                       <button
